@@ -24,11 +24,35 @@ package org.catrobat.catroid.uitest.content.brick;
 
 import android.util.Log;
 
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+
+import android.widget.ListView;
 import junit.framework.Assert;
 
 import org.catrobat.catroid.ui.ScriptActivity;
 import org.catrobat.catroid.uitest.annotation.Device;
 import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
+
+import org.catrobat.catroid.ProjectManager;
+import org.catrobat.catroid.R;
+import org.catrobat.catroid.content.Project;
+import org.catrobat.catroid.content.Script;
+import org.catrobat.catroid.content.Sprite;
+import org.catrobat.catroid.content.StartScript;
+import org.catrobat.catroid.content.WhenScript;
+import org.catrobat.catroid.content.bricks.Brick;
+import org.catrobat.catroid.content.bricks.LedOffBrick;
+import org.catrobat.catroid.content.bricks.LedOnBrick;
+import org.catrobat.catroid.ui.MainMenuActivity;
+import org.catrobat.catroid.ui.adapter.BrickAdapter;
+import org.catrobat.catroid.ui.dragndrop.DragAndDropListView;
+import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
+import org.catrobat.catroid.uitest.util.UiTestUtils;
+import org.catrobat.catroid.uitest.util.SensorTestServerConnection;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LedBrickTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
 
@@ -88,7 +112,7 @@ public class LedBrickTest extends BaseActivityInstrumentationTestCase<ScriptActi
 
 		Log.d(TAG, "LED value set to " + SensorTestServerConnection.SET_LED_OFF_VALUE);
 		UiTestUtils.clickOnBottomBar(solo, R.id.button_play);
-		solo.waitForActivity(StageActivity.class.getSimpleName());
+//		solo.waitForActivity(StageActivity.class.getSimpleName());
 
 		solo.sleep(LED_DELAY_MS);
 		Log.d(TAG, "checking sensor value");
