@@ -23,12 +23,31 @@
 package org.catrobat.catroid.uitest.content.brick;
 
 import android.util.Log;
+import android.widget.ListView;
 
 import junit.framework.Assert;
+
+import java.util.ArrayList;
 
 import org.catrobat.catroid.ui.ScriptActivity;
 import org.catrobat.catroid.uitest.annotation.Device;
 import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
+import org.catrobat.catroid.uitest.util.SensorTestServerConnection;
+
+import org.catrobat.catroid.ProjectManager;
+import org.catrobat.catroid.R;
+import org.catrobat.catroid.content.Project;
+import org.catrobat.catroid.content.Script;
+import org.catrobat.catroid.content.Sprite;
+import org.catrobat.catroid.content.StartScript;
+import org.catrobat.catroid.content.WhenScript;
+import org.catrobat.catroid.content.bricks.Brick;
+import org.catrobat.catroid.content.bricks.VibrationBrick;
+import org.catrobat.catroid.ui.MainMenuActivity;
+import org.catrobat.catroid.ui.adapter.BrickAdapter;
+import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
+import org.catrobat.catroid.uitest.util.UiTestUtils;
+
 
 public class VibrationBrickTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
 
@@ -84,7 +103,7 @@ public class VibrationBrickTest extends BaseActivityInstrumentationTestCase<Scri
 
 		Log.d(TAG, "Vibration starts after pressing play");
 		UiTestUtils.clickOnBottomBar(solo, R.id.button_play);
-		solo.waitForActivity(StageActivity.class.getSimpleName());
+//		solo.waitForActivity(StageActivity.class.getSimpleName());
 
 		solo.sleep(WLAN_DELAY_MS);
 		SensorTestServerConnection.checkVibrationSensorValue(SensorTestServerConnection.SET_VIBRATION_ON_VALUE);
