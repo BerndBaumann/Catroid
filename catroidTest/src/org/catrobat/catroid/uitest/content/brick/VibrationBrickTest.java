@@ -105,7 +105,7 @@ public class VibrationBrickTest extends BaseActivityInstrumentationTestCase<Scri
 		UiTestUtils.clickOnBottomBar(solo, R.id.button_play);
 //		solo.waitForActivity(StageActivity.class.getSimpleName());
 
-		solo.sleep(WLAN_DELAY_MS);
+		solo.sleep(2000);
 		SensorTestServerConnection.checkVibrationSensorValue(SensorTestServerConnection.SET_VIBRATION_ON_VALUE);
 		solo.sleep(WLAN_DELAY_MS);
 
